@@ -29,6 +29,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * send password reset email to user's email base on token.
+     *
+     * @param string $token
+     */
     public function sendPasswordResetNotification($token)
     {
         $data = [ 'url' => url('password/reset', $token) ];
