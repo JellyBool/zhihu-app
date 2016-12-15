@@ -32,7 +32,7 @@
         if (img && img.tagName && img.tagName.toLowerCase() == 'img') {
             setTabFocus('remote');
         } else {
-            setTabFocus('upload');
+            setTabFocus('upload');//jellybool修改了这一行来实现remote focus
         }
     }
 

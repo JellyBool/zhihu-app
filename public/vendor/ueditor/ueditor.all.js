@@ -1,7 +1,7 @@
 /*!
  * UEditor
  * version: ueditor
- * build: Tue Aug 25 2015 15:23:01 GMT+0800 (CST)
+ * build: Thu May 29 2014 16:47:49 GMT+0800 (中国标准时间)
  */
 
 (function(){
@@ -9531,7 +9531,6 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
     }
     return root;
 };
-
 
 // core/filternode.js
 /**
@@ -19810,7 +19809,6 @@ UE.plugins['video'] = function (){
         }
     }
 })();
-
 
 // plugins/table.action.js
 /**
