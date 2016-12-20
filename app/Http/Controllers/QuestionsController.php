@@ -45,6 +45,7 @@ class QuestionsController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
+        dd($request->get('topics'));
         $data = [
             'title' => $request->get('title'),
             'body' => $request->get('body'),
