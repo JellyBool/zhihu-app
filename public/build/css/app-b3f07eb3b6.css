@@ -8345,4 +8345,27 @@ a.topic:hover {
   text-decoration: none;
 }
 
+.button.is-naked {
+  background: 0 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  height: auto;
+}
+
+.actions {
+  display: -webkit-box;
+  display: flex;
+  padding: 10px 20px;
+}
+
+.delete-form {
+  margin-left: 20px;
+}
+
+.delete-button {
+  color: #3097D1;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=app.css.map */
