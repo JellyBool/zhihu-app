@@ -24,6 +24,11 @@ class QuestionRepository
         return Question::create($attributes);
     }
 
+    public function byId($id)
+    {
+        return Question::find($id);
+    }
+
     public function normalizeTopic(array $topics)
     {
         return collect($topics)->map(function ($topic) {
