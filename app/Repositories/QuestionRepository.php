@@ -29,6 +29,11 @@ class QuestionRepository
         return Question::find($id);
     }
 
+    public function getQuestionsFeed()
+    {
+        return Question::published()->latest('updated_at')->with('user')->get();
+    }
+
     public function normalizeTopic(array $topics)
     {
         return collect($topics)->map(function ($topic) {
