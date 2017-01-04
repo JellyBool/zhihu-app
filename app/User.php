@@ -39,6 +39,21 @@ class User extends Authenticatable
     {
         return $this->id == $model->user_id;
     }
+
+    public function follows()
+    {
+        return $this->belongsToMany(Question::class,'user_question')->withTimestamps();
+    }
+
+    public function followThis($question)
+    {
+        return $this->follows()->toggle($question);
+    }
+
+    public function followed($question)
+    {
+        return !! $this->follows()->where('question_id',$question)->count();
+    }
     /**
      * send password reset email to user's email base on token.
      *
