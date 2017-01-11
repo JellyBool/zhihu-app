@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Naux\Mail\SendCloudTemplate;
 use Mail;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -18,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'confirmation_token'
+        'name', 'email', 'password', 'avatar', 'confirmation_token','api_token'
     ];
 
     /**
@@ -30,26 +34,44 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function answers()
     {
         return $this->hasMany(Answer::class);
     }
 
+    /**
+     * @param Model $model
+     * @return bool
+     */
     public function owns(Model $model)
     {
         return $this->id == $model->user_id;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function follows()
     {
         return $this->belongsToMany(Question::class,'user_question')->withTimestamps();
     }
 
+    /**
+     * @param $question
+     * @return array
+     */
     public function followThis($question)
     {
         return $this->follows()->toggle($question);
     }
 
+    /**
+     * @param $question
+     * @return bool
+     */
     public function followed($question)
     {
         return !! $this->follows()->where('question_id',$question)->count();
