@@ -8372,4 +8372,17 @@ a.topic:hover {
   text-align: center;
 }
 
+.user-statics, .user-actions {
+  margin-top: 20px;
+}
+
+.user-statics {
+  display: -webkit-box;
+  display: flex;
+}
+
+.statics-item {
+  padding: 2px 20px;
+}
+
 /*# sourceMappingURL=app.css.map */
