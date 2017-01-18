@@ -3,7 +3,7 @@
 namespace App\Notifications;
 
 use App\Channels\SendcloudChannel;
-use app\Mailer\UserMailer;
+use App\Mailer\UserMailer;
 use Auth;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

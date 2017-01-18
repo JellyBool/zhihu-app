@@ -2,7 +2,7 @@
 
 namespace App;
 
-use app\Mailer\UserMailer;
+use App\Mailer\UserMailer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

@@ -1,5 +1,5 @@
 <?php
-namespace app\Mailer;
+namespace App\Mailer;
 
 use Auth;
 

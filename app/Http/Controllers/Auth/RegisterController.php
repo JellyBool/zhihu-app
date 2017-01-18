@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use app\Mailer\UserMailer;
+use App\Mailer\UserMailer;
 use Mail;
 use App\User;
 use App\Http\Controllers\Controller;
