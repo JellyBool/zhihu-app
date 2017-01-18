@@ -9,8 +9,6 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Naux\Mail\SendCloudTemplate;
-use Mail;
 
 /**
  * Class NewUserFollowNotification
@@ -33,12 +31,12 @@ class NewUserFollowNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
     {
-        return ['database',SendcloudChannel::class];
+        return ['database', SendcloudChannel::class];
     }
 
     /**
@@ -64,7 +62,7 @@ class NewUserFollowNotification extends Notification
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

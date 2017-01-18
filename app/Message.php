@@ -18,14 +18,14 @@ class Message extends Model
     /**
      * @var array
      */
-    protected $fillable = ['from_user_id','to_user_id','body'];
+    protected $fillable = ['from_user_id', 'to_user_id', 'body'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function fromUser()
     {
-        return $this->belongsTo(User::class,'from_user_id');
+        return $this->belongsTo(User::class, 'from_user_id');
     }
 
     /**
@@ -33,6 +33,6 @@ class Message extends Model
      */
     public function toUser()
     {
-        return $this->belongsTo(User::class,'to_user_id');
+        return $this->belongsTo(User::class, 'to_user_id');
     }
 }

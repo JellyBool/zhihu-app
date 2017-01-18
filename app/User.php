@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'confirmation_token','api_token'
+        'name', 'email', 'password', 'avatar', 'confirmation_token', 'api_token'
     ];
 
     /**
@@ -55,7 +55,7 @@ class User extends Authenticatable
      */
     public function follows()
     {
-        return $this->belongsToMany(Question::class,'user_question')->withTimestamps();
+        return $this->belongsToMany(Question::class, 'user_question')->withTimestamps();
     }
 
     /**
@@ -73,7 +73,7 @@ class User extends Authenticatable
      */
     public function followed($question)
     {
-        return !! $this->follows()->where('question_id',$question)->count();
+        return !!$this->follows()->where('question_id', $question)->count();
     }
 
     /**
@@ -81,7 +81,7 @@ class User extends Authenticatable
      */
     public function followers()
     {
-        return $this->belongsToMany(self::class,'followers','follower_id','followed_id')->withTimestamps();
+        return $this->belongsToMany(self::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
     }
 
     /**
@@ -89,7 +89,7 @@ class User extends Authenticatable
      */
     public function followersUser()
     {
-        return $this->belongsToMany(self::class,'followers','followed_id','follower_id')->withTimestamps();
+        return $this->belongsToMany(self::class, 'followers', 'followed_id', 'follower_id')->withTimestamps();
     }
 
     /**
@@ -106,7 +106,7 @@ class User extends Authenticatable
      */
     public function votes()
     {
-        return $this->belongsToMany(Answer::class,'votes')->withTimestamps();
+        return $this->belongsToMany(Answer::class, 'votes')->withTimestamps();
     }
 
     /**
@@ -124,7 +124,7 @@ class User extends Authenticatable
      */
     public function hasVotedFor($answer)
     {
-        return !! $this->votes()->where('answer_id',$answer)->count();
+        return !!$this->votes()->where('answer_id', $answer)->count();
     }
 
     /**
@@ -132,8 +132,9 @@ class User extends Authenticatable
      */
     public function messages()
     {
-        return $this->hasMany(Message::class,'to_user_id');
+        return $this->hasMany(Message::class, 'to_user_id');
     }
+
     /**
      * send password reset email to user's email base on token.
      *
@@ -141,6 +142,6 @@ class User extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        (new UserMailer())->passwordReset($this->email,$token);
+        (new UserMailer())->passwordReset($this->email, $token);
     }
 }

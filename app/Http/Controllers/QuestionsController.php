@@ -17,6 +17,7 @@ class QuestionsController extends Controller
      * @var QuestionRepository
      */
     protected $questionRepository;
+
     /**
      * QuestionsController constructor.
      */
@@ -34,7 +35,8 @@ class QuestionsController extends Controller
     public function index()
     {
         $questions = $this->questionRepository->getQuestionsFeed();
-        return view('questions.index',compact('questions'));
+
+        return view('questions.index', compact('questions'));
     }
 
     /**
@@ -93,8 +95,8 @@ class QuestionsController extends Controller
     {
         $question = $this->questionRepository->byId($id);
 
-        if(Auth::user()->owns($question)) {
-            return view('questions.edit',compact('question'));
+        if ( Auth::user()->owns($question) ) {
+            return view('questions.edit', compact('question'));
         }
 
         return back();
@@ -114,7 +116,7 @@ class QuestionsController extends Controller
 
         $question->update([
             'title' => $request->get('title'),
-            'body' => $request->get('body'),
+            'body'  => $request->get('body'),
         ]);
 
         $question->topics()->sync($topics);
@@ -133,12 +135,12 @@ class QuestionsController extends Controller
     {
         $question = $this->questionRepository->byId($id);
 
-        if(Auth::user()->owns($question)) {
+        if ( Auth::user()->owns($question) ) {
             $question->delete();
 
             return redirect('/');
         }
 
-        abort(403,'Forbidden'); // return back();
+        abort(403, 'Forbidden'); // return back();
     }
 }

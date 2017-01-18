@@ -13,7 +13,7 @@ class Answer extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id','question_id','body'];
+    protected $fillable = ['user_id', 'question_id', 'body'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -36,6 +36,6 @@ class Answer extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment','commentable');
+        return $this->morphMany('App\Comment', 'commentable');
     }
 }

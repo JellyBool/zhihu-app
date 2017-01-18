@@ -55,7 +55,7 @@ class CommentsController extends Controller
      */
     public function question($id)
     {
-       return $this->question->getQuestionCommentsById($id);
+        return $this->question->getQuestionCommentsById($id);
     }
 
     /**
@@ -66,10 +66,10 @@ class CommentsController extends Controller
         $model = $this->getModelNameFromType(request('type'));
 
         return $this->comment->create([
-            'commentable_id' => request('model'),
+            'commentable_id'   => request('model'),
             'commentable_type' => $model,
-            'user_id' => Auth::guard('api')->user()->id,
-            'body' => request('body')
+            'user_id'          => Auth::guard('api')->user()->id,
+            'body'             => request('body')
         ]);
     }
 

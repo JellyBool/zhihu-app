@@ -13,7 +13,7 @@ class Topic extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name','questions_count','bio'];
+    protected $fillable = ['name', 'questions_count', 'bio'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

@@ -18,7 +18,7 @@ class Comment extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id','body','commentable_id','commentable_type'];
+    protected $fillable = ['user_id', 'body', 'commentable_id', 'commentable_type'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo

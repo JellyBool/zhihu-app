@@ -32,9 +32,9 @@ class MessagesController extends Controller
     public function store()
     {
         $message = $this->message->create([
-            'to_user_id' => request('user'),
+            'to_user_id'   => request('user'),
             'from_user_id' => Auth::guard('api')->user()->id,
-            'body' => request('body')
+            'body'         => request('body')
         ]);
         if($message) {
             return response()->json(['status' => true]);

@@ -13,7 +13,7 @@ class Question extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title','body','user_id'];
+    protected $fillable = ['title', 'body', 'user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -44,7 +44,7 @@ class Question extends Model
      */
     public function followers()
     {
-        return $this->belongsToMany(User::class,'user_question')->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_question')->withTimestamps();
     }
 
     /**
@@ -52,7 +52,7 @@ class Question extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment','commentable');
+        return $this->morphMany('App\Comment', 'commentable');
     }
 
     /**
@@ -61,6 +61,6 @@ class Question extends Model
      */
     public function scopePublished($query)
     {
-        return $query->where('is_hidden','F');
+        return $query->where('is_hidden', 'F');
     }
 }
