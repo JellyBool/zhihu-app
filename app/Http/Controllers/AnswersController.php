@@ -7,8 +7,15 @@ use App\Repositories\AnswerRepository;
 use Illuminate\Http\Request;
 use Auth;
 
+/**
+ * Class AnswersController
+ * @package App\Http\Controllers
+ */
 class AnswersController extends Controller
 {
+    /**
+     * @var AnswerRepository
+     */
     protected $answer;
 
     /**
@@ -20,6 +27,11 @@ class AnswersController extends Controller
         $this->answer = $answer;
     }
 
+    /**
+     * @param StoreAnswerRequest $request
+     * @param $question
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(StoreAnswerRequest $request, $question)
     {
         $answer = $this->answer->create([

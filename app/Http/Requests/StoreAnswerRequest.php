@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class StoreAnswerRequest
+ * @package App\Http\Requests
+ */
 class StoreAnswerRequest extends FormRequest
 {
     /**

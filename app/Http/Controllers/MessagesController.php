@@ -6,8 +6,15 @@ use App\Repositories\MessageRepository;
 use Illuminate\Http\Request;
 use Auth;
 
+/**
+ * Class MessagesController
+ * @package App\Http\Controllers
+ */
 class MessagesController extends Controller
 {
+    /**
+     * @var MessageRepository
+     */
     protected $message;
 
     /**
@@ -19,6 +26,9 @@ class MessagesController extends Controller
         $this->message = $message;
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store()
     {
         $message = $this->message->create([

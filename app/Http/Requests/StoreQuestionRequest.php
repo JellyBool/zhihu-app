@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class StoreQuestionRequest
+ * @package App\Http\Requests
+ */
 class StoreQuestionRequest extends FormRequest
 {
     /**
@@ -16,6 +20,9 @@ class StoreQuestionRequest extends FormRequest
         return true;
     }
 
+    /**
+     * @return array
+     */
     public function messages()
     {
         return [

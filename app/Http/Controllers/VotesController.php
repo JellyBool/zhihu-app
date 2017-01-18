@@ -6,8 +6,15 @@ use App\Repositories\AnswerRepository;
 use Auth;
 use Illuminate\Http\Request;
 
+/**
+ * Class VotesController
+ * @package App\Http\Controllers
+ */
 class VotesController extends Controller
 {
+    /**
+     * @var AnswerRepository
+     */
     protected $answer;
 
     /**
@@ -19,6 +26,10 @@ class VotesController extends Controller
         $this->answer = $answer;
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function users($id)
     {
         $user = Auth::guard('api')->user();
@@ -31,6 +42,9 @@ class VotesController extends Controller
 
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function vote()
     {
         $answer = $this->answer->byId(request('answer'));

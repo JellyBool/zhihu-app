@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 
+/**
+ * Class QuestionFollowController
+ * @package App\Http\Controllers
+ */
 class QuestionFollowController extends Controller
 {
 
@@ -16,6 +20,10 @@ class QuestionFollowController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @param $question
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function follow($question)
     {
         Auth::user()->followThis($question);

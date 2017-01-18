@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Naux\Mail\SendCloudTemplate;
 
+/**
+ * Class RegisterController
+ * @package App\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     /*
@@ -78,6 +82,9 @@ class RegisterController extends Controller
        return $user;
     }
 
+    /**
+     * @param $user
+     */
     private function sendVerifyEmailTo($user)
     {
         (new UserMailer())->welcome($user);
