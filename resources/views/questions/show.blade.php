@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <user-follow-button user="{{$question->user_id}}"></user-follow-button>
-                        <a href="#editor" class="btn btn-default pull-right">发送私信</a>
+                        <send-message user="{{$question->user_id}}"></send-message>
                     </div>
                 </div>
             </div>
