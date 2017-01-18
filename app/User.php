@@ -6,8 +6,6 @@ use App\Mailer\UserMailer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Naux\Mail\SendCloudTemplate;
-use Mail;
 
 /**
  * Class User
@@ -91,6 +89,21 @@ class User extends Authenticatable
     public function followThisUser($user)
     {
         return $this->followers()->toggle($user);
+    }
+
+    public function votes()
+    {
+        return $this->belongsToMany(Answer::class,'votes')->withTimestamps();
+    }
+
+    public function voteFor($answer)
+    {
+        return $this->votes()->toggle($answer);
+    }
+
+    public function hasVotedFor($answer)
+    {
+        return !! $this->votes()->where('answer_id',$answer)->count();
     }
     /**
      * send password reset email to user's email base on token.

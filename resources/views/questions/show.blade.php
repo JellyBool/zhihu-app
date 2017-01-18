@@ -47,10 +47,7 @@
                         @foreach($question->answers as $answer)
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="">
-                                        <img width="36" src="{{ $answer->user->avatar }}"
-                                             alt="{{ $answer->user->name }}">
-                                    </a>
+                                    <user-vote-button answer="{{$answer->id}}" count="{{$answer->votes_count}}"></user-vote-button>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">
