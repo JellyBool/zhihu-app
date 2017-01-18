@@ -19,21 +19,47 @@ class QuestionRepository
         return Question::where('id',$id)->with(['topics','answers'])->first();
     }
 
+    /**
+     * @param array $attributes
+     * @return static
+     */
     public function create(array $attributes)
     {
         return Question::create($attributes);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function byId($id)
     {
         return Question::find($id);
     }
 
+    /**
+     * @return mixed
+     */
     public function getQuestionsFeed()
     {
         return Question::published()->latest('updated_at')->with('user')->get();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getQuestionCommentsById($id)
+    {
+        $question = Question::with('comments','comments.user')->where('id',$id)->first();
+
+        return $question->comments;
+    }
+
+    /**
+     * @param array $topics
+     * @return array
+     */
     public function normalizeTopic(array $topics)
     {
         return collect($topics)->map(function ($topic) {
