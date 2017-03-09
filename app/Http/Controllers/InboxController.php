@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Message;
 use Illuminate\Http\Request;
 
+/**
+ * Class InboxController
+ * @package App\Http\Controllers
+ */
 class InboxController extends Controller
 {
 
@@ -16,6 +20,9 @@ class InboxController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $messages = Message::where('to_user_id',user()->id)
@@ -25,6 +32,10 @@ class InboxController extends Controller
         return view('inbox.index',['messages' => $messages->unique('dialog_id')->groupBy('to_user_id') ]);
     }
 
+    /**
+     * @param $dialogId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($dialogId)
     {
         $messages = Message::where('dialog_id',$dialogId)->latest()->get();
@@ -32,6 +43,10 @@ class InboxController extends Controller
         return view('inbox.show',compact('messages','dialogId'));
     }
 
+    /**
+     * @param $dialogId
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store($dialogId)
     {
         $message = Message::where('dialog_id',$dialogId)->first();
