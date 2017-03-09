@@ -28,7 +28,7 @@ class InboxController extends Controller
     public function show($dialogId)
     {
         $messages = Message::where('dialog_id',$dialogId)->latest()->get();
-
+        $messages->markAsRead();
         return view('inbox.show',compact('messages','dialogId'));
     }
 
