@@ -54,4 +54,22 @@ class Message extends Model
     {
         return new MessageCollection($models);
     }
+
+    public function read()
+    {
+        return $this->has_read === 'T';
+    }
+
+    public function unread()
+    {
+        return $this->has_read === 'F';
+    }
+
+    public function shouldAddUnreadClass()
+    {
+        if(user()->id === $this->from_user_id) {
+            return false;
+        }
+        return $this->unread();
+    }
 }

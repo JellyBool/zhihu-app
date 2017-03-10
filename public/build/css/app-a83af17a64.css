@@ -8389,4 +8389,8 @@ a.topic:hover {
   margin-top: 80px;
 }
 
+.media.unread {
+  background: #fff9ca;
+}
+
 /*# sourceMappingURL=app.css.map */
