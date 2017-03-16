@@ -19,6 +19,7 @@ Route::post('questions/{question}/answer','AnswersController@store');
 Route::get('question/{question}/follow','QuestionFollowController@follow');
 
 Route::get('notifications','NotificationsController@index');
+Route::get('notifications/{notification}','NotificationsController@show');
 
 Route::get('inbox','InboxController@index');
 Route::get('inbox/{dialogId}','InboxController@show');
