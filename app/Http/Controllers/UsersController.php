@@ -12,10 +12,4 @@ class UsersController extends Controller
         return view('users.avatar');
     }
 
-    public function changeAvatar(Request $request)
-    {
-        $path = Storage::disk('local')->put('public',$request->file('img'));
-
-        return [ 'url' => asset('storage/public/'.$path) ];
-    }
 }
