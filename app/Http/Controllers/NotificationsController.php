@@ -22,6 +22,10 @@ class NotificationsController extends Controller
         return view('notifications.index', compact('user'));
     }
 
+    /**
+     * @param DatabaseNotification $notification
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function show(DatabaseNotification $notification)
     {
         $notification->markAsRead();
