@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "~6.0",
         "naux/sendcloud": "1.1.*",
         "laracasts/flash": "2.0.*",
-        "overtrue/laravel-ueditor": "~1.0"
+        "overtrue/laravel-ueditor": "~1.0",
+        "overtrue/laravel-filesystem-qiniu": "^0.0.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
