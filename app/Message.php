@@ -55,16 +55,25 @@ class Message extends Model
         return new MessageCollection($models);
     }
 
+    /**
+     * @return bool
+     */
     public function read()
     {
         return $this->has_read === 'T';
     }
 
+    /**
+     * @return bool
+     */
     public function unread()
     {
         return $this->has_read === 'F';
     }
 
+    /**
+     * @return bool
+     */
     public function shouldAddUnreadClass()
     {
         if(user()->id === $this->from_user_id) {
