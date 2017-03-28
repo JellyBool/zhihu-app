@@ -13,9 +13,7 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
-        $settings = array_merge(user()->settings,array_only($request->all(),['city','bio']));
-
-        user()->update(['settings' => $settings]);
+        user()->settings()->merge($request->all());
 
         return back();
     }

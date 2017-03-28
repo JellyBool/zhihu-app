@@ -37,6 +37,10 @@ class User extends Authenticatable
         'settings' => 'array'
     ];
 
+    public function settings()
+    {
+        return new Setting($this);
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
