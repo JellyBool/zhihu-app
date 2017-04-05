@@ -19,9 +19,7 @@ class NewUserFollowNotification extends Notification
     use Queueable;
 
     /**
-     * Create a new notification instance.
-     *
-     * @return void
+     * NewUserFollowNotification constructor.
      */
     public function __construct()
     {
@@ -55,7 +53,6 @@ class NewUserFollowNotification extends Notification
     {
         return [
             'name' => Auth::guard('api')->user()->name,
-
         ];
     }
 

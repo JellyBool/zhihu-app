@@ -8,15 +8,22 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
+/**
+ * Class NewMessageNotification
+ * @package App\Notifications
+ */
 class NewMessageNotification extends Notification
 {
     use Queueable;
 
-    public $message;
     /**
-     * Create a new notification instance.
-     *
-     * @return void
+     * @var Message
+     */
+    public $message;
+
+    /**
+     * NewMessageNotification constructor.
+     * @param Message $message
      */
     public function __construct(Message $message)
     {
@@ -35,6 +42,10 @@ class NewMessageNotification extends Notification
     }
 
 
+    /**
+     * @param $notifiable
+     * @return array
+     */
     public function toDatabase($notifiable)
     {
         return [

@@ -9,9 +9,10 @@ use App\Answer;
  */
 class AnswerRepository
 {
+
     /**
      * @param array $attributes
-     * @return static
+     * @return \App\Answer
      */
     public function create(array $attributes)
     {

@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class MessageCollection extends Collection
 {
+
     /**
-     *
+     * Mark a notifications collection as read.
      */
     public function markAsRead()
     {

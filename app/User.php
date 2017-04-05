@@ -33,10 +33,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @var array
+     */
     protected $casts = [
         'settings' => 'array'
     ];
 
+    /**
+     * @return Setting
+     */
     public function settings()
     {
         return new Setting($this);
